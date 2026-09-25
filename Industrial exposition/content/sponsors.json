@@ -1,0 +1,58 @@
+[
+  {
+    "id": "banque-du-levant",
+    "name": "Banque du Levant",
+    "tier": "platinum",
+    "logo": "",
+    "website": "https://example.com/banque-du-levant",
+    "description": "Leading corporate and trade finance bank supporting Lebanese exporters."
+  },
+  {
+    "id": "cedar-holdings-group",
+    "name": "Cedar Holdings Group",
+    "tier": "platinum",
+    "logo": "",
+    "website": "https://example.com/cedar-holdings",
+    "description": "Diversified industrial holding company and long-standing exhibition partner."
+  },
+  {
+    "id": "orient-insurance",
+    "name": "Orient Insurance & Reinsurance",
+    "tier": "gold",
+    "logo": "",
+    "website": "https://example.com/orient-insurance",
+    "description": "Commercial and industrial risk coverage provider."
+  },
+  {
+    "id": "lebanon-logistics-partners",
+    "name": "Lebanon Logistics Partners",
+    "tier": "gold",
+    "logo": "",
+    "website": "https://example.com/lebanon-logistics",
+    "description": "Freight forwarding and customs clearance for exhibitors and exporters."
+  },
+  {
+    "id": "beirut-chamber-of-commerce",
+    "name": "Beirut Chamber of Commerce, Industry & Agriculture",
+    "tier": "silver",
+    "logo": "",
+    "website": "https://example.com/beirut-chamber",
+    "description": "Institutional partner supporting trade and industry development."
+  },
+  {
+    "id": "mediterranean-shipping-services",
+    "name": "Mediterranean Shipping Services",
+    "tier": "silver",
+    "logo": "",
+    "website": "https://example.com/med-shipping",
+    "description": "Regional maritime freight and container shipping."
+  },
+  {
+    "id": "beirut-business-hotel",
+    "name": "Beirut Business Hotel & Suites",
+    "tier": "silver",
+    "logo": "",
+    "website": "https://example.com/beirut-business-hotel",
+    "description": "Official accommodation partner for exhibitors and delegates."
+  }
+]

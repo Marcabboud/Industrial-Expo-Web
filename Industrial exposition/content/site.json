@@ -1,0 +1,56 @@
+{
+  "name": "Lebanon Industrial Exposition",
+  "shortName": "LINDEX 2026",
+  "tagline": "Where Lebanese Industry Meets the World",
+  "description": "The national trade exhibition connecting Lebanese manufacturers with regional and international buyers, investors, and partners.",
+  "dates": {
+    "start": "2026-10-28",
+    "end": "2026-10-31",
+    "display": "October 28–31, 2026",
+    "hours": "3:00 PM – 9:00 PM",
+    "note": "Dates are provisional and subject to confirmation."
+  },
+  "edition": "2nd Edition",
+  "venue": {
+    "name": "Seaside Arena",
+    "address": "Seaside Arena, Beirut",
+    "city": "Beirut",
+    "country": "Lebanon",
+    "postalNote": "",
+    "mapEmbedUrl": ""
+  },
+  "organizer": {
+    "name": "Association of Lebanese Industrialists",
+    "shortName": "ALI",
+    "description": "Founded to represent and advance the interests of Lebanon's industrial sector, the Association of Lebanese Industrialists brings together manufacturers across every major industry to promote local production, export growth, and industrial policy reform."
+  },
+  "contact": {
+    "email": "info@lebanonindustrialexpo.org",
+    "phone": "+961 1 000 000",
+    "fax": "+961 1 000 001",
+    "address": "Association of Lebanese Industrialists, Sin El Fil, Beirut, Lebanon"
+  },
+  "social": {
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
+    "linkedin": "https://linkedin.com/",
+    "twitter": "https://twitter.com/",
+    "youtube": "https://youtube.com/"
+  },
+  "highlights": [
+    { "label": "Exhibitors", "value": "250+" },
+    { "label": "Visitors Expected", "value": "20,000+" },
+    { "label": "Countries Represented", "value": "35+" },
+    { "label": "Exhibition Days", "value": "4" }
+  ],
+  "ctas": {
+    "exhibit": {
+      "label": "Become an Exhibitor",
+      "href": "/register?type=exhibitor"
+    },
+    "visit": {
+      "label": "Register to Visit",
+      "href": "/register?type=visitor"
+    }
+  }
+}
