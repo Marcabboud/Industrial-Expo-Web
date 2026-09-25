@@ -9,16 +9,19 @@
   --color-primary-dark: #000000;
   --color-primary-light: #2c3034;
 
-  --color-accent: #e03327;
-  --color-accent-dark: #b8241a;
-  --color-accent-light: #ef6a5e;
+  --color-accent: #dc3a42;
+  --color-accent-dark: #4b2335;
+  --color-accent-light: #ea6a70;
 
-  --color-blue: #2e9bd6;
-  --color-blue-dark: #1f7cae;
-  --color-yellow: #f2c200;
+  --color-blue: #72bce8;
+  --color-blue-dark: #3f97cc;
+  --color-yellow: #f3cb45;
   --color-yellow-dark: #cc9f00;
-  --color-green: #3fa34d;
-  --color-green-dark: #2d7d3a;
+  --color-green: #479a4a;
+  --color-green-dark: #347a38;
+
+  --color-plum: #2a1822;
+  --color-plum-dark: #1f1119;
 
   --color-ink: #14171a;
   --color-ink-muted: #545b66;
@@ -31,8 +34,11 @@
   --color-border: #dfddd5;
   --color-border-strong: #c3c0b6;
 
-  --color-success: #3fa34d;
-  --color-danger: #e03327;
+  --color-success: #479a4a;
+  --color-danger: #dc3a42;
+
+  /* Hero title font — swapped live by the dev-only FontPicker */
+  --title-font: var(--font-unica-one);
 }
 
 @theme inline {
@@ -51,6 +57,9 @@
   --color-green: var(--color-green);
   --color-green-dark: var(--color-green-dark);
 
+  --color-plum: var(--color-plum);
+  --color-plum-dark: var(--color-plum-dark);
+
   --color-ink: var(--color-ink);
   --color-ink-muted: var(--color-ink-muted);
   --color-ink-faint: var(--color-ink-faint);
@@ -65,7 +74,10 @@
   --color-success: var(--color-success);
   --color-danger: var(--color-danger);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-montserrat);
+  --font-title: var(--title-font);
+  --font-condensed: var(--font-oswald);
+  --font-arabic: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
 }
 

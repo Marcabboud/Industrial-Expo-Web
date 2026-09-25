@@ -1,13 +1,57 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Bungee,
+  Cairo,
+  Geist_Mono,
+  Montserrat,
+  Oswald,
+  Russo_One,
+  Squada_One,
+  Unica_One,
+} from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FontPicker from "@/components/FontPicker";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+});
+
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
+});
+
+const unicaOne = Unica_One({
+  variable: "--font-unica-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const squadaOne = Squada_One({
+  variable: "--font-squada-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const bungee = Bungee({
+  variable: "--font-bungee",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const russoOne = Russo_One({
+  variable: "--font-russo-one",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const geistMono = Geist_Mono({
@@ -55,7 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${oswald.variable} ${cairo.variable} ${unicaOne.variable} ${squadaOne.variable} ${bungee.variable} ${russoOne.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-ink">
         <a
@@ -69,6 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        {process.env.NODE_ENV === "development" && <FontPicker />}
       </body>
     </html>
   );

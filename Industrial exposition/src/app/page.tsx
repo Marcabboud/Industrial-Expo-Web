@@ -1,10 +1,11 @@
-import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import AnimatedStat from "@/components/AnimatedStat";
 import CategoryChips from "@/components/CategoryChips";
-import { ExpoMarkEX, ExpoMarkPO } from "@/components/ExpoMark";
+import TicketWidget from "@/components/TicketWidget";
+import ScrollDrift from "@/components/ScrollDrift";
+import { ExpoMarkEX, ExpoMarkPO, ExpoWordmark } from "@/components/ExpoMark";
 import {
   site,
   schedule,
@@ -12,7 +13,7 @@ import {
   sponsorTierOrder,
   sponsorTierLabels,
   getExhibitorCategories,
-  getSortedNews,
+  tickets,
 } from "@/lib/content";
 
 const statAccents = ["bg-blue", "bg-accent", "bg-yellow", "bg-green"];
@@ -42,66 +43,82 @@ const features = [
 
 export default function HomePage() {
   const categories = getExhibitorCategories();
-  const latestNews = getSortedNews().slice(0, 3);
   const dayOne = schedule[0];
 
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-primary text-white">
+      <section className="relative overflow-hidden bg-plum text-white">
         <div className="relative">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.07]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-              backgroundSize: "48px 48px",
-            }}
-          />
+          <ScrollDrift
+            y={-0.3}
+            rotate={-0.04}
+            className="pointer-events-none absolute right-0 top-0 w-32 origin-top-right sm:w-52 lg:w-64 xl:w-80"
+          >
+            <ExpoMarkEX className="animate-drift block h-auto w-full" />
+          </ScrollDrift>
+          <ScrollDrift
+            x={0.15}
+            y={0.12}
+            rotate={0.05}
+            className="pointer-events-none absolute bottom-0 left-0 w-36 origin-bottom-left sm:w-48 lg:w-60 xl:w-72"
+          >
+            <ExpoMarkPO
+              className="animate-drift block h-auto w-full"
+              style={{ animationDelay: "1.5s" }}
+            />
+          </ScrollDrift>
 
-          <ExpoMarkEX className="animate-drift pointer-events-none absolute -top-2 right-0 w-40 opacity-90 sm:right-6 sm:w-56 lg:w-72" />
-          <ExpoMarkPO
-            className="animate-drift pointer-events-none absolute bottom-0 left-0 w-32 opacity-90 sm:left-6 sm:w-44 lg:w-56"
-            style={{ animationDelay: "1.5s" }}
-          />
-
-          <Container className="relative py-20 sm:py-28 lg:py-32">
-            <div className="inline-flex flex-wrap items-center gap-2">
-              <span className="bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-white transition-transform duration-200 ease-out hover:-translate-y-0.5">
+          <Container className="relative pb-28 pt-20 sm:pb-32 sm:pt-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:py-14">
+            <div>
+              <h1 className="max-w-md font-title text-5xl leading-[0.9] tracking-tight sm:text-7xl">
+                {site.name.replace(/\s*Expo$/i, "")}
+                <span className="sr-only"> Expo</span>
+                <ExpoWordmark className="mt-[0.12em] block h-[0.72em] w-auto" />
+              </h1>
+              <p
+                lang="ar"
+                className="mt-4 font-arabic text-2xl font-bold text-white/90 sm:text-3xl"
+              >
+                {site.nameArabic}
+              </p>
+              <span
+                className="mt-5 inline-block bg-accent py-1 pl-3 pr-7 font-condensed text-lg font-semibold uppercase tracking-wide text-white"
+                style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%)" }}
+              >
                 {site.edition}
-              </span>
-              <span className="bg-green px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-white transition-transform duration-200 ease-out hover:-translate-y-0.5">
-                {site.dates.display}
               </span>
             </div>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              {site.name}
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
-              {site.tagline}. {site.description}
-            </p>
-
-            <p className="mt-4 text-sm font-medium uppercase tracking-wide text-white/60">
-              {site.venue.name} &middot; {site.venue.city}, {site.venue.country}
-              {site.dates.hours && <> &middot; {site.dates.hours}</>}
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button href={site.ctas.exhibit.href} variant="accent">
-                {site.ctas.exhibit.label}
-              </Button>
-              <Button href={site.ctas.visit.href} variant="outline">
-                {site.ctas.visit.label}
-              </Button>
+            <div className="mt-12 flex flex-col items-start lg:col-start-2 lg:mt-24 lg:items-end lg:text-right xl:mt-28">
+              <span className="border-4 border-accent bg-accent px-5 py-2 font-condensed text-3xl font-bold uppercase text-white sm:text-4xl">
+                Save the date
+              </span>
+              <span className="mt-3 bg-green px-5 py-2 font-condensed text-2xl font-bold text-white sm:text-3xl">
+                {site.dates.display}
+              </span>
+              <p className="mt-5 text-base font-extrabold uppercase tracking-wide text-white sm:text-lg">
+                {site.venue.name}
+                {site.dates.hours && (
+                  <>
+                    <br />
+                    {site.dates.hours}
+                  </>
+                )}
+              </p>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/75">
+                {site.tagline}. {site.description}
+              </p>
+              <div className="mt-8">
+                <Button href={site.ctas.visit.href} variant="accent">
+                  {site.ctas.visit.label}
+                </Button>
+              </div>
             </div>
           </Container>
         </div>
-
         {/* Highlights strip */}
-        <div className="relative border-t border-white/10 bg-primary-dark/60">
+        <div className="relative border-t border-white/10 bg-plum-dark text-white">
           <Container>
             <dl className="grid grid-cols-2 gap-6 py-8 sm:grid-cols-4 sm:gap-8">
               {site.highlights.map((item, i) => (
@@ -126,6 +143,40 @@ export default function HomePage() {
             </dl>
           </Container>
         </div>
+      </section>
+
+      {/* Tickets */}
+      <section id="tickets" className="scroll-mt-24 py-20 sm:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Tickets"
+            title="Get your tickets"
+            description={`Secure your place at ${site.shortName}, ${site.dates.display} at ${site.venue.name}.`}
+          />
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-3">
+            {tickets.map((ticket) => (
+              <li
+                key={ticket.id}
+                className="flex flex-col border border-border bg-surface p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-accent hover:shadow-lg"
+              >
+                <h3 className="text-sm font-bold uppercase tracking-wide text-primary">
+                  {ticket.name}
+                </h3>
+                <p className="mt-2 font-mono text-2xl font-bold text-accent">
+                  {ticket.price}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {ticket.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-10">
+            <TicketWidget eventId={process.env.TICKIT_EVENT_ID ?? "EVENT_ID"} />
+          </div>
+        </Container>
       </section>
 
       {/* About teaser */}
@@ -265,63 +316,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* News teaser */}
-      <section className="py-20 sm:py-24">
-        <Container>
-          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="News" title="Latest announcements" />
-            <Button href="/news" variant="ghost" className="shrink-0">
-              View all news
-            </Button>
-          </div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {latestNews.map((item) => (
-              <Link
-                key={item.id}
-                href={`/news/${item.slug}`}
-                className="group flex flex-col border border-border bg-surface p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-accent hover:shadow-lg"
-              >
-                <span className="text-xs font-bold uppercase tracking-widest text-accent">
-                  {item.category}
-                </span>
-                <h3 className="mt-3 text-base font-bold text-primary group-hover:text-accent-dark">
-                  {item.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">
-                  {item.excerpt}
-                </p>
-                <time
-                  dateTime={item.date}
-                  className="mt-4 text-xs font-medium uppercase tracking-wide text-ink-faint"
-                >
-                  {new Date(item.date).toLocaleDateString("en-GB", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </time>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* Final CTA */}
       <section className="bg-primary py-16 text-white sm:py-20">
         <Container className="flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-2xl text-2xl font-bold tracking-tight sm:text-3xl">
-            Reserve your place at {site.shortName}
+            Secure your ticket to {site.shortName}
           </h2>
           <p className="max-w-xl text-white/75">
-            Whether you&apos;re showcasing your products or sourcing new partners,
-            registration takes just a few minutes.
+            Four days of Lebanese industry, live demonstrations, and
+            conferences. Buying your ticket takes just a few minutes.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button href={site.ctas.exhibit.href} variant="accent">
-              {site.ctas.exhibit.label}
-            </Button>
-            <Button href={site.ctas.visit.href} variant="outline">
+            <Button href={site.ctas.visit.href} variant="accent">
               {site.ctas.visit.label}
             </Button>
           </div>

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { exhibitors, news } from "@/lib/content";
+import { exhibitors } from "@/lib/content";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lebanonindustrialexpo.org";
@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/program",
     "/venue",
     "/sponsors",
-    "/news",
     "/contact",
     "/register",
   ].map((path) => ({
@@ -25,10 +24,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const newsRoutes = news.map((item) => ({
-    url: `${siteUrl}/news/${item.slug}`,
-    lastModified: new Date(item.date),
-  }));
-
-  return [...staticRoutes, ...exhibitorRoutes, ...newsRoutes];
+  return [...staticRoutes, ...exhibitorRoutes];
 }

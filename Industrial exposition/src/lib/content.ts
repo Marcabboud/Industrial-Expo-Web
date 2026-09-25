@@ -2,7 +2,7 @@ import siteData from "@/content/site.json";
 import exhibitorsData from "@/content/exhibitors.json";
 import sponsorsData from "@/content/sponsors.json";
 import scheduleData from "@/content/schedule.json";
-import newsData from "@/content/news.json";
+import ticketsData from "@/content/tickets.json";
 
 export type SiteContent = typeof siteData;
 
@@ -53,22 +53,18 @@ export type ScheduleDay = {
   events: ScheduleEvent[];
 };
 
-export type NewsItem = {
+export type Ticket = {
   id: string;
-  slug: string;
-  title: string;
-  date: string;
-  category: string;
-  excerpt: string;
-  image: string;
-  body: string[];
+  name: string;
+  price: string;
+  description: string;
 };
 
 export const site: SiteContent = siteData;
 export const exhibitors: Exhibitor[] = exhibitorsData as Exhibitor[];
 export const sponsors: Sponsor[] = sponsorsData as Sponsor[];
 export const schedule: ScheduleDay[] = scheduleData as ScheduleDay[];
-export const news: NewsItem[] = newsData as NewsItem[];
+export const tickets: Ticket[] = ticketsData as Ticket[];
 
 export const sponsorTierOrder: SponsorTier[] = ["platinum", "gold", "silver"];
 
@@ -90,10 +86,3 @@ export function getSponsorsByTier(tier: SponsorTier): Sponsor[] {
   return sponsors.filter((sponsor) => sponsor.tier === tier);
 }
 
-export function getNewsBySlug(slug: string): NewsItem | undefined {
-  return news.find((item) => item.slug === slug);
-}
-
-export function getSortedNews(): NewsItem[] {
-  return [...news].sort((a, b) => (a.date < b.date ? 1 : -1));
-}

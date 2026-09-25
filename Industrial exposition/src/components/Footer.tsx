@@ -16,10 +16,8 @@ const columns: { title: string; links: { href: string; label: string }[] }[] = [
   {
     title: "Participate",
     links: [
-      { href: "/register?type=exhibitor", label: "Become an Exhibitor" },
-      { href: "/register?type=visitor", label: "Register to Visit" },
+      { href: "/#tickets", label: "Buy Tickets" },
       { href: "/venue", label: "Venue & Location" },
-      { href: "/news", label: "News & Announcements" },
     ],
   },
 ];

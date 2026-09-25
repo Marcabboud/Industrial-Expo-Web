@@ -1,5 +1,6 @@
 {
-  "name": "Lebanon Industrial Exposition",
+  "name": "Lebanese Industry Expo",
+  "nameArabic": "معرض الصناعة اللبنانية",
   "shortName": "LINDEX 2026",
   "tagline": "Where Lebanese Industry Meets the World",
   "description": "The national trade exhibition connecting Lebanese manufacturers with regional and international buyers, investors, and partners.",
@@ -44,13 +45,9 @@
     { "label": "Exhibition Days", "value": "4" }
   ],
   "ctas": {
-    "exhibit": {
-      "label": "Become an Exhibitor",
-      "href": "/register?type=exhibitor"
-    },
     "visit": {
-      "label": "Register to Visit",
-      "href": "/register?type=visitor"
+      "label": "Buy Tickets",
+      "href": "/#tickets"
     }
   }
 }

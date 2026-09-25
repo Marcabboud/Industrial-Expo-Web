@@ -13,8 +13,15 @@ const navLinks = [
   { href: "/program", label: "Program" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/venue", label: "Venue" },
-  { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
+];
+
+// Same blue / red / yellow / green rotation as the category chips.
+const accents = [
+  { hover: "hover:bg-blue" },
+  { hover: "hover:bg-accent" },
+  { hover: "hover:bg-yellow" },
+  { hover: "hover:bg-green" },
 ];
 
 export default function Header() {
@@ -45,29 +52,20 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {navLinks.map((link) => {
+          {navLinks.map((link, i) => {
             const isActive =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+            const accent = accents[i % accents.length];
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`group relative px-3 py-2 text-sm font-medium uppercase tracking-wide transition-colors ${
-                  isActive
-                    ? "text-accent"
-                    : "text-ink-muted hover:text-primary"
+                className={`px-3 py-2 text-sm font-bold uppercase tracking-wide transition-all duration-200 ease-out hover:-translate-y-0.5 hover:text-white hover:shadow-md ${
+                  `text-ink-muted ${accent.hover}`
                 }`}
               >
                 {link.label}
-                <span
-                  aria-hidden="true"
-                  className={`absolute inset-x-3 -bottom-0.5 h-0.5 bg-accent transition-transform duration-200 ease-out ${
-                    isActive
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
               </Link>
             );
           })}
@@ -75,10 +73,10 @@ export default function Header() {
 
         <div className="hidden lg:flex">
           <Link
-            href="/register"
+            href="/#tickets"
             className="inline-flex items-center justify-center bg-accent px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent-dark"
           >
-            Register
+            Buy Tickets
           </Link>
         </div>
 
@@ -120,16 +118,17 @@ export default function Header() {
           className="border-t border-border bg-surface lg:hidden"
         >
           <Container className="flex flex-col py-2">
-            {navLinks.map((link) => {
+            {navLinks.map((link, i) => {
               const isActive =
                 link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+              const accent = accents[i % accents.length];
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`border-b border-border py-3 text-sm font-medium uppercase tracking-wide last:border-b-0 ${
-                    isActive ? "text-accent" : "text-ink-muted"
+                  className={`border-b border-border px-3 py-3 text-sm font-bold uppercase tracking-wide transition-colors last:border-b-0 hover:text-white ${
+                    `text-ink-muted ${accent.hover}`
                   }`}
                 >
                   {link.label}
@@ -137,10 +136,11 @@ export default function Header() {
               );
             })}
             <Link
-              href="/register"
+              href="/#tickets"
+              onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center bg-accent px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white"
             >
-              Register
+              Buy Tickets
             </Link>
           </Container>
         </nav>

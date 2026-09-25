@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TICKET_ID_PLACEHOLDER_1",
+    "name": "Day Pass",
+    "price": "PRICE_TBD",
+    "description": "Single-day access to the exhibition floor on the day of your choice."
+  },
+  {
+    "id": "TICKET_ID_PLACEHOLDER_2",
+    "name": "4-Day Pass",
+    "price": "PRICE_TBD",
+    "description": "Unlimited access to the exhibition floor for all four days."
+  },
+  {
+    "id": "TICKET_ID_PLACEHOLDER_3",
+    "name": "Business Pass",
+    "price": "PRICE_TBD",
+    "description": "Four-day access plus the industry conference and B2B matchmaking sessions."
+  }
+]
