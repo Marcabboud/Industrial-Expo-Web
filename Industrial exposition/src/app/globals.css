@@ -36,9 +36,6 @@
 
   --color-success: #479a4a;
   --color-danger: #dc3a42;
-
-  /* Hero title font — swapped live by the dev-only FontPicker */
-  --title-font: var(--font-unica-one);
 }
 
 @theme inline {
@@ -75,7 +72,7 @@
   --color-danger: var(--color-danger);
 
   --font-sans: var(--font-montserrat);
-  --font-title: var(--title-font);
+  --font-title: var(--font-unica-one);
   --font-condensed: var(--font-oswald);
   --font-arabic: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
